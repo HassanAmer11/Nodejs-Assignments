@@ -128,7 +128,10 @@ console.log(getFileName("/user/files/report.pdf"));
 console.log(buildPath({ dir: "/folder", name: "app", ext: ".js" }));
 console.log(getExtension("/docs/readme.md"));
 console.log(parsePath("/home/app/main.js"));
-console.log(isAbsolutePath("/home/user/file.txt"));
+console.log(
+  "is an absolute path:",
+  isAbsolutePath("/hass/home/user2/file.txt"),
+);
 console.log(joinSegments("src", "components", "App.js"));
 console.log(resolvePath("./index.js"));
 console.log(joinTwoPaths("/folder1", "folder2/file.txt"));
