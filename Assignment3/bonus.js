@@ -1,11 +1,13 @@
 var majorityElement = function (nums) {
-  let count = 1;
+  let count = 0;
   let number;
   for (let index = 0; index < nums.length; index++) {
-    const frequent = nums.filter((el) => el == nums[index]).length;
-    if (frequent > count) {
-      count = frequent;
-      number = nums[index];
+    if (nums[index] != number) {
+      const frequent = nums.filter((el) => el == nums[index]).length;
+      if (frequent > count) {
+        count = frequent;
+        number = nums[index];
+      }
     }
   }
   return number;
