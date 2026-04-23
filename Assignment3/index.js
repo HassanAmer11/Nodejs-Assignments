@@ -213,7 +213,7 @@ function getUserById(userId, res) {
 
 /*
 1. What is the Node.js Event Loop?
-
+بيلف باستمرار بيشوف هل فى كود محتاج يحصل ليه تشغيل و بيشغله 
 The Event Loop is the core mechanism that allows Node.js to perform non-blocking 
 asynchronous operations despite being single-threaded.
 
@@ -226,6 +226,11 @@ It pushes callbacks from the queue to the stack when the stack is empty.
 Event Loop = traffic controller that decides when async callbacks run
 
 2. What is Libuv and What Role Does It Play in Node.js?
+
+المسئول عن تنفيذ العمليات اللى ليها تعامل ملفات النظام و التشفير
+و مزود ب 
+thread loop => contain 4 threads 
+و يمكن زيادتهم الى 1024 
 
 Libuv is a C library used by Node.js to handle asynchronous I/O operations.
 
@@ -283,14 +288,11 @@ Compression
 
 UV_THREADPOOL_SIZE=8 node app.js
 
-👉 Important:
-
-Max recommended: around number of CPU cores
-Too many threads = performance overhead
 
 ----------------------------------------------------------------
 
 6. How Does Node.js Handle Blocking and Non-Blocking Code Execution?
+
 🔴 Blocking Code
 Runs synchronously
 Stops execution of other code
