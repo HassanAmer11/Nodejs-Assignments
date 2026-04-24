@@ -55,7 +55,90 @@ CREATE TABLE Sales (
     ALTER TABLE Products
     MODIFY ProductName VARCHAR(100) NOT NULL;
 
-    
+    6) Perform Basic Inserts
+a) Add Supplier
+INSERT INTO Suppliers (SupplierName, ContactNumber)
+VALUES ('FreshFoods', '01001234567');
+
+
+
+b) Insert Products (linked to FreshFoods)
+INSERT INTO Products (ProductName, Price, StockQuantity, SupplierID)
+VALUES 
+('Milk', 15.00, 50, (SELECT SupplierID FROM Suppliers WHERE SupplierName = 'FreshFoods')),
+('Bread', 10.00, 30, (SELECT SupplierID FROM Suppliers WHERE SupplierName = 'FreshFoods')),
+('Eggs', 20.00, 40, (SELECT SupplierID FROM Suppliers WHERE SupplierName = 'FreshFoods'));
+
+
+c) Add Sale for Milk
+INSERT INTO Sales (ProductID, QuantitySold, SaleDate)
+VALUES (
+    (SELECT ProductID FROM Products WHERE ProductName = 'Milk'),
+    2,
+    '2025-05-20'
+);
+
+
+7) Update Price of Bread
+UPDATE Products
+SET Price = 25.00
+WHERE ProductName = 'Bread';
+
+
+8) Delete Product 'Eggs'
+DELETE FROM Products
+WHERE ProductName = 'Eggs';
+
+9) Total Quantity Sold for each Product.
+
+SELECT p.ProductName, SUM(s.QuantitySold) AS TotalSold
+FROM Products p
+LEFT JOIN Sales s ON p.ProductID = s.ProductID
+GROUP BY p.ProductName;
+
+
+
+10) Get the product with the highest stock
+
+SELECT ProductName, StockQuantity
+FROM Products
+ORDER BY StockQuantity DESC
+LIMIT 1;
+
+
+11) Find suppliers with names starting with 'F'
+
+SELECT *
+FROM Suppliers
+WHERE SupplierName LIKE 'F%';
+
+
+12) Show all products that have never been sold
+
+SELECT p.ProductName
+FROM Products p
+LEFT JOIN Sales s ON p.ProductID = s.ProductID
+WHERE s.ProductID IS NULL;
+
+13-Get all sales along with product name and sale date.
+SELECT p.ProductName, s.SaleDate, s.QuantitySold
+FROM Sales s
+JOIN Products p ON s.ProductID = p.ProductID;
+
+14-Create a user “store_manager” and give them SELECT, INSERT, and UPDATE permissions on all tables.
+CREATE USER 'store_manager'@'localhost' IDENTIFIED BY '1234';
+
+GRANT SELECT, INSERT, UPDATE ON retail_store_db.* TO 'store_manager'@'localhost';
+
+
+15-Revoke UPDATE permission from “store_manager”.
+
+REVOKE UPDATE ON *.* FROM 'store_manager'@'localhost';
+
+16-Grant DELETE permission to “store_manager” only on the Sales table.
+
+GRANT DELETE ON retail_store_db.Sales TO 'store_manager'@'localhost';
+
  * 
  */
 
