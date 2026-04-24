@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "ba4a3cc4-9c07-47df-bc56-510a00785843",
+		"name": "Express js Assignment4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7574893",
+		"_collection_link": "https://grey-rocket-953123.postman.co/workspace/New-Team-Workspace~9935b93c-bfdc-4bc5-853d-e4ed2bd04459/collection/7574893-ba4a3cc4-9c07-47df-bc56-510a00785843?action=share&source=collection_link&creator=7574893"
+	},
+	"item": [
+		{
+			"name": "get-users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"name\": \"ali ahmed\",\r\n        \"email\": \"ali-ahmed@example.com\",\r\n        \"age\":45\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-user-by-id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/get-user/1777034992531",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"get-user",
+						"1777034992531"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-users",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\": 1777015302983,\r\n\"name\": \"عمر جمال\",\r\n\"email\": \"omar-gamal@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/1777016687437",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1777016687437"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter-users-by-age",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user/filter?minAge=49",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "minAge",
+							"value": "49"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
