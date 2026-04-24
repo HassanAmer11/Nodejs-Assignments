@@ -37,6 +37,28 @@ CREATE TABLE Sales (
 
 */
 
+
+/**
+    2) Add “Category” Column
+    ALTER TABLE Products
+    ADD Category VARCHAR(50);
+
+    3) Remove “Category” Column
+    ALTER TABLE Products
+    DROP COLUMN Category;
+
+    4) Change ContactNumber to VARCHAR(15)
+    ALTER TABLE Suppliers
+    MODIFY ContactNumber VARCHAR(15);
+
+    5) Add NOT NULL to ProductName
+    ALTER TABLE Products
+    MODIFY ProductName VARCHAR(100) NOT NULL;
+
+    
+ * 
+ */
+
 import express from "express";
 import mysql2 from 'mysql2/promise'
 
