@@ -142,39 +142,3 @@ GRANT DELETE ON retail_store_db.Sales TO 'store_manager'@'localhost';
  * 
  */
 
-import express from "express";
-import mysql2 from 'mysql2/promise'
-
-const app = express();
-
-
-const connection = await mysql2.createConnection({
-  host: "localhost",
-  port: "3306",
-  user: "root",
-  database: "myfirstdb",
-});
-
-
-const tesConnection = async () => {
-    try {
-        await connection.connect()
-        console.log("DB connected Successfully");
-    } catch(error) {
-        console.log("DB connection failed");
-    }
-}
-
-tesConnection();
-
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.write("Hello World");
-  res.end();
-});
-
-
-app.listen(3000, () => {
-    console.log("server running on port 3000");
-})
