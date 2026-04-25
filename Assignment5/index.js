@@ -139,6 +139,6 @@ REVOKE UPDATE ON *.* FROM 'store_manager'@'localhost';
 
 GRANT DELETE ON retail_store_db.Sales TO 'store_manager'@'localhost';
 
- * 
+
  */
 
