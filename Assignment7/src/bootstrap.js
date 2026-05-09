@@ -35,7 +35,8 @@ export const bootstrap = async () => {
   app.get("/", (req, res) => {
     return res.status(200).send(
       `<div><a href="http://localhost:3000/users/">http://localhost:3000/users</a></div>
-            <div><a href="http://localhost:3000/posts">http://localhost:3000/posts</a></div>`,
+       <div><a href="http://localhost:3000/posts">http://localhost:3000/posts</a></div>
+       <div><a href="http://localhost:3000/comments">http://localhost:3000/comments</a></div>`,
     );
   });
 
